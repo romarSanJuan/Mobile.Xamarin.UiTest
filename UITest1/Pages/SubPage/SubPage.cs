@@ -84,7 +84,7 @@ namespace Mobile.Xamarin.UiTest.Pages.SubPage
         /* Using Global Features in Test Steps */
         public SubPage SubPageGlobalFeatures()
         {
-            AssertElementValue("My Expected Value", subPageElementLocator03);
+            AssertElementValue(subPageElementLocator03,"My Expected Value");
 
             AssertElementsPresent(subPageElementLocator02);
 
