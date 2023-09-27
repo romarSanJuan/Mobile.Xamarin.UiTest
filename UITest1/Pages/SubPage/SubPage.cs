@@ -1,7 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
 using System.Linq;
-using Xamarin.UITest;
 using Query = System.Func<Xamarin.UITest.Queries.AppQuery,
     Xamarin.UITest.Queries.AppQuery>;
 
@@ -31,13 +30,19 @@ namespace Mobile.Xamarin.UiTest.Pages.SubPage
         }
 
         /* Page Action Samples */
-        public SubPage SubPagePageAction01()
+        public SubPage SubPagePageAction()
         {
             /* Capturing Screenshot */
             _app.Screenshot("Screenshot Description");
 
             /* Selecting an element */
             _app.Tap(subPageElementLocator01);
+
+            /* Double tap on an element using the element coordinates */
+            _app.DoubleTapCoordinates(100, 200);
+
+            /* Double tap on an element */
+            _app.DoubleTap(subPageElementLocator02);
 
             /* Selecting element with multiple index */
             _app.Tap(x => x.Marked("Element_List").Index(0));
@@ -52,19 +57,23 @@ namespace Mobile.Xamarin.UiTest.Pages.SubPage
         }
 
         // Page Movement Samples
-        public SubPage SubPageMovementAction01()
+        public SubPage SubPageMovementAction()
         {
-            /* Scrolling down to specific element in page (Element Locator, Scroll View Element) */
+            /* Touch gesture that scrolls down to specific element location in page */
             _app.ScrollDownTo("Element_Locator", "ScrollView");
 
-            /* Scrolling up to specific element in page (Element Locator, Scroll View Element) */
+            /* Touch gesture that scrolls down to specific element location in page */
             _app.ScrollUpTo("Element_Locator", "ScrollView");
+
+            /* Simulates a left-to-right or a right-to-left gesture swipe. */
+            _app.SwipeLeftToRight();
+            _app.SwipeRightToLeft();
 
             return this;
         }
 
         /* Page Assertion Samples */
-        public SubPage SubPageAssertAction01()
+        public SubPage SubPageAssertAction()
         {
             /* Asserting Element expected and actual value */
             Assert.AreEqual("Expected Value", _app.Query(subPageElementLocator03).First().Text);

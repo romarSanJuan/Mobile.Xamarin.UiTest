@@ -1,7 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
 using System.Linq;
-using System.Reflection;
 using Xamarin.UITest;
 using Query = System.Func<Xamarin.UITest.Queries.AppQuery,
     Xamarin.UITest.Queries.AppQuery>;
@@ -48,7 +47,7 @@ namespace Mobile.Xamarin.UiTest
 
         #endregion
 
-        #region Data Function
+        #region Data Functions
 
         /// <summary>
         /// Data function that extract value text of element with multiple index (e.g. Dropdown Menu List Items).
@@ -94,9 +93,16 @@ namespace Mobile.Xamarin.UiTest
         /// </summary>
         public void AssertElementValue(Query elementLocator, string expectedValue)
         {
-            var message = "Incorrect expected value on element " + elementLocator + " expected " + expectedValue;
+            var message = "Unable to verify element expected value " + expectedValue + " on element " + elementLocator;
 
             Assert.AreEqual(expectedValue, _app.Query(elementLocator).First().Text, message);
+        }
+
+        public void AssertelementValueIndex(Query elementLocator, string expectedValue, int index)
+        {
+            var message = "Unable to verify element expected value " + expectedValue + " on element " + elementLocator + " index " + index;
+
+            Assert.AreEqual(expectedValue, _app.Query(elementLocator)[index].Text, message);
         }
 
         /// <summary>

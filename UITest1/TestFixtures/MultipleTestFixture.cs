@@ -13,9 +13,16 @@
  * Tests:OneTimeTearDown
  * FixtureSetup:OneTimeTearDown
  * RootFixtureSetup:OneTimeTearDown
+ * 
+ * Note:
+ * A method decorated with a SetUp attribute will be executed before each test.
+ * A method decorated with a TearDown attribute will be executed after each test.
+ * A method decorated with a OneTimeSetUp attribute will be executed before any test is executed.
  */
 
-/* First Layer */
+/* First Layer Setup
+ * add first layer setup before starting the test
+ */
 using NUnit.Framework;
 using Xamarin.UITest;
 
@@ -35,7 +42,9 @@ public class RootFixtureSetup
 
 namespace Mobile.Xamarin.UiTest.TestFixtures
 {
-    /* Second Layer */
+    /* Second Layer Setup
+     * add second layer setup before starting the test
+     */
     [SetUpFixture]
     public class FixtureSetup
     {

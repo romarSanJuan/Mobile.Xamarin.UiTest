@@ -1,5 +1,4 @@
-﻿using Xamarin.UITest;
-using Query = System.Func<Xamarin.UITest.Queries.AppQuery,
+﻿using Query = System.Func<Xamarin.UITest.Queries.AppQuery,
     Xamarin.UITest.Queries.AppQuery>;
 
 namespace Mobile.Xamarin.UiTest.Pages.MainPage
@@ -8,7 +7,10 @@ namespace Mobile.Xamarin.UiTest.Pages.MainPage
     {
         #region Element List
 
-        /* List all Elements available in the page that will be used in test execution */
+        /* Element List
+         * List all Elements available in the page
+         * that will be used in test execution
+         */
 
         readonly Query mainPageElementLocator01;
         readonly Query mainPageElementLocator02;
@@ -20,7 +22,8 @@ namespace Mobile.Xamarin.UiTest.Pages.MainPage
         {
             /* Add specific element locator representing the Page.
              * Before the test is executed in the page, the specific Element listed here will validated first.
-             * If not found, the Test Execution is terminated and marked as failed */
+             * If not found, the Test Execution is terminated and marked as failed
+             */
 
             Android = x => x.Marked("Element_Locator"),
             iOS = x => x.Marked("Element_Locator"),
@@ -28,8 +31,10 @@ namespace Mobile.Xamarin.UiTest.Pages.MainPage
 
         public MainPage()
         {
-            /* List all element available inside the Page with their corresponding locators
-             * Example: Xpath, Automation Id, and etc. */
+            /* List all element available inside the Page
+             * and add their corresponding locators
+             * Example: Xpath, Automation Id, Text and etc.
+             */
 
             mainPageElementLocator01 = x => x.Marked("Element_Locator1");
             mainPageElementLocator02 = x => x.Marked("Element_Locator2");
@@ -44,21 +49,19 @@ namespace Mobile.Xamarin.UiTest.Pages.MainPage
             return this;
         }
 
-        public MainPage MainPageAction02()
+        public MainPage MainPageAction()
         {
             /* Add user actions */
+            _app.Tap(mainPageElementLocator01);
 
             return this;
         }
 
         /* Add assert actions that can be done inside the Page */
-        public MainPage MainPageAssertion01()
+        public MainPage MainPageAssertion()
         {
-            return this;
-        }
+            _app.WaitForElement(mainPageElementLocator02);
 
-        public MainPage MainPageaAssertion02()
-        {
             return this;
         }
     }
