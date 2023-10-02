@@ -19,7 +19,7 @@ namespace Mobile.Xamarin.UiTest
             _app.Screenshot("On " + this.GetType().Name);
         }
 
-        #region Page Transition (POM)
+        // Page Transition (POM)
 
         /// <summary>
         /// POM implementation that wait and verifies if test execution is on the expected page.
@@ -45,9 +45,7 @@ namespace Mobile.Xamarin.UiTest
             Assert.DoesNotThrow(() => _app.WaitForNoElement(Trait.Current, timeout: timeout), message);
         }
 
-        #endregion
-
-        #region Data Functions
+        // Data Functions
 
         /// <summary>
         /// Data function that extract value text of element with multiple index (e.g. Dropdown Menu List Items).
@@ -84,9 +82,7 @@ namespace Mobile.Xamarin.UiTest
             _app.Tap(x => x.Marked(elementLocator).Text(value));
         }
 
-        #endregion
-
-        #region Assert Functions
+        //Assert Functions
 
         /// <summary>
         /// Assert function that verifies the element actual value is equal to test expected value.
@@ -145,9 +141,7 @@ namespace Mobile.Xamarin.UiTest
             }
         }
 
-        #endregion
-
-        #region Action Functions
+        // Action Functions
 
         /// <summary>
         /// Action function that will drag and drop from first element location to second element location.
@@ -163,9 +157,7 @@ namespace Mobile.Xamarin.UiTest
             _app.DragCoordinates(elementOneX, elementOneY, elemenTwoX, elemenTwoY);
         }
 
-        #endregion
-
-        #region Wait Functions
+        // Wait Functions
 
         /// <summary>
         /// Wait function that will repeatly query the app until a matching element is NOT PRESENT on the screen.
@@ -187,9 +179,7 @@ namespace Mobile.Xamarin.UiTest
             _app.WaitForElement(elementLocator, message, timeout: TimeSpan.FromSeconds(10));
         }
 
-        #endregion
-
-        #region Random Functions
+        // Random Functions
 
         /// <summary>
         /// Random Functions that will get the element List Item count.
@@ -244,7 +234,5 @@ namespace Mobile.Xamarin.UiTest
             int randomValue = GetRandomInteger(minValue, maxValue);
             _app.SetSliderValue(elementLocator, randomValue);
         }
-
-        #endregion
     }
 }

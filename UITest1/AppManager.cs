@@ -5,7 +5,7 @@ namespace Mobile.Xamarin.UiTest
 {
     public class AppManager
     {
-        /* Mobile Application Package ID */
+        // Mobile Application Package ID
         private const string AndroidPackageId = "<ADD ANDROID PACKAGE ID HERE>";
         private const string iOSPackageId = "<ADD IOS PACKAGE ID HERE>";
 
@@ -36,7 +36,7 @@ namespace Mobile.Xamarin.UiTest
             }
         }
 
-        /* Starting the app based on Platform */
+        // Starting the app based on Platform
         public static void StartApp()
         {
             if (Platform == Platform.Android)

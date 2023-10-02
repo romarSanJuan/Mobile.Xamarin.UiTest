@@ -13,45 +13,52 @@ namespace Mobile.Xamarin.UiTest.AutomatedTests.RegressionTest
         {
         }
 
-        /* Test Execution with Ordering
-         * Test execution order can be defined,
-         * ordered tests are started in ascending order.
-         * By Default test execution is rrun alphabetically.
-         */
+        //  Test Execution with Ordering
+        //  Test execution order can be defined,
+        //  ordered tests are started in ascending order.
+        //  By Default test execution is rrun alphabetically.
+
         [Test, Order(1)]
         public void TC_0001_Test_Case_Title()
         {
-            /* Access all defined actions and assertions in each page */
+            //  Access all defined actions and assertions in each page
             new MainPage()
                 .MainPageAction01()
                 .MainPageAssertion01();
 
             new SubPage()
-                .SubPagePageAction01()
-                .SubPageAssertAction01();
+                .SubPagePageAction()
+                .SubPageMovementAction();
         }
 
         [Test, Order(2)]
         public void TC_0002_Test_Case_Title()
         {
-            /* All actions and assertions can be reordered
-             * based on Test Case Steps
-             */
+            //  All actions and assertions can be reordered
+            // based on Test Case Steps
+
             new MainPage()
                 .MainPageAssertion01()
                 .MainPageAction01();
 
             new SubPage()
-                .SubPageAssertAction01()
-                .SubPagePageAction01();
+                .SubPageAssertAction()
+                .SubPageGlobalFeatures();
         }
 
-        /* Skipping Test Execution
-         * Add reason for ignoring the test
-         */
+        //  Skipping Test Execution
+        //  Add reason for ignoring the test
+
         [Ignore("Reason"), Order(3)]
         public void TC_0003_Test_Case_Title()
         {
+            new MainPage()
+               .MainPageAction02()
+               .MainPageAction01();
+
+            new SubPage()
+                .SubPageAssertAction()
+                .SubPageMovementAction();
         }
     }
 }
